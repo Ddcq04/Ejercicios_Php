@@ -1,0 +1,17 @@
+#rojo {
+    background-color: #f00;
+}
+#azul {
+    background-color: #00f;
+}
+.dado {
+    font-size:6rem;
+}
+table {
+    border-collapse: collapse;
+    border-color: #fff;
+}
+td {
+    padding:1rem;
+   text-align: center;
+}
