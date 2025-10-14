@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Crear Personaje</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <form enctype="multipart/form-data" action="index.php" method="post">
+            <label for="">Nombre:</label><br>
+                <input type="text" name="nombre"><br>
+
+            <label for="">Alias:</label><br>
+                <input type="text" name="alias"><br>
+
+            <label for="">Edad:</label><br>
+                <input type="number" name="edad"><br>
+            
+            <fieldset>
+                <legend>Armas a elegir(puedes elegir varias):</legend>
+                    <input type="checkbox" name="armas[]" value="Maza">Maza<br>
+                    <input type="checkbox" name="armas[]" value="Antorcha">Antorcha<br>
+                    <input type="checkbox" name="armas[]" value="Martillo">Martillo<br>
+                    <input type="checkbox" name="armas[]" value="Látigo">Látigo<br>
+            </fieldset>
+            <fieldset>
+                <legend>¿Practica artes mágicas?</legend>
+                    <input type="radio" value="si" name="decision" checked="checked">Si<br>
+                    <input type="radio" value="no" name="decision">No
+            </fieldset>
+
+            <label for="">Subir imagen:</label><br>
+            <input type="hidden" name="MAX_FILE_SIZE" value="10000" />
+            <input type="file" name="archivo"><br><br>
+
+            <button type="submit" value="enviar">Enviar</button>
+        </form>
+    </body>
+</html>
