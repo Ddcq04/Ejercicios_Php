@@ -1,8 +1,9 @@
 <?php
 session_start();
+//Si se envio dinero que cree la sesion "dinero_usuario"
 if(isset($_POST["dinero"])) {
     $_SESSION["dinero_usuario"] = ($_POST["dinero"] > 0)? $_POST["dinero"] : 0;
-}
+}//En caso que no que lo regrese a la pagina principal
 if(!isset($_SESSION["dinero_usuario"])) {
     require_once "bienvenida.php";
     exit();
