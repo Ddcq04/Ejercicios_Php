@@ -1,4 +1,5 @@
 <?php
+require_once "precios.php";
 session_start();
 
 // Manejo de la sesión con dos valores
@@ -39,6 +40,7 @@ if (isset($_POST["accion"])) {
         case " Terminar ":
             $compraRealizada = htmlTablaPedidos();
             // Destruyo la sesión y vuelvo a la página de bienvenida
+            session_destroy();
             require_once "despedida.php";
             exit();
             break;
@@ -50,10 +52,13 @@ require_once 'compra.php';
 
 // Función axiliar que genera una tabla HTML a partir  la tabla de pedidos
 // Almacenada en la sesión
-function htmlTablaPedidos():string{
+function htmlTablaPedidos(): string
+{
     $msg = "";
+    $msg .= "<table>";
     foreach($_SESSION["pedido"] as $fruta => $cantidad) {
-        $msg .= "$fruta: $cantidad <br>";
+        $msg .= "<tr><td>$fruta: $cantidad</td></tr>";
     }
+    $msg .= "</table>";
     return $msg;
 }

@@ -9,8 +9,7 @@
 <H1> La Frutería del siglo XXI</H1>
 <div class="container">
     <div class="compra-detalle">
-        <?php echo $compraRealizada; 
-                session_destroy();?>
+        <?php echo $compraRealizada;?>
     </div>
     
     <div class="mensaje-principal">¡Muchas gracias por su pedido! Vuelva pronto 💚</div>
