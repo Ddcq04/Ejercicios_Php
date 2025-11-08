@@ -1,13 +1,3 @@
-<?php
-    $contador = 0;
-    //Contador de visitas 
-    if(isset($_COOKIE["contador"])) {
-        $contador = $_COOKIE["contador"];
-    }
-    $contador++;
-    setcookie("contador",$contador, time() + 30*24*3600);
-?>
-
 <!DOCTYPE html>
 <html>
     <head>

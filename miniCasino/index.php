@@ -1,5 +1,12 @@
 <?php
 session_start();
+$contador = 1;
+    //Contador de visitas 
+    if(!isset($_COOKIE["contador"])) {
+        $contador = 1;
+        setcookie("contador",$contador, time() + 30*24*3600);
+    }else $contador = $_COOKIE["contador"];
+
 //Si se envio dinero que cree la sesion "dinero_usuario"
 if(isset($_POST["dinero"])) {
     $_SESSION["dinero_usuario"] = ($_POST["dinero"] > 0)? $_POST["dinero"] : 0;
@@ -40,6 +47,8 @@ $msg="";
             //Si el usuario elige abandonar
             case "Abandonar":
                 $dinero_final = $_SESSION["dinero_usuario"];
+                $contador++;
+                setcookie("contador",$contador, time() + 30*24*3600);
                 session_destroy();
                 ?>
                 <html>
@@ -67,3 +76,5 @@ $msg="";
             <button type="submit" name="Accion" value="Apostar">Apostar cantidad</button>
             <button type="submit" name="Accion" value="Abandonar">Abandonar el Casino</button>
         </form>
+    </form>
+</html>
