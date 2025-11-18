@@ -24,8 +24,8 @@ if(!empty(["coordenadax"]) && !empty(["coordenadax"])){
     <?php else: ?>
             <form method="post">
                 <h3>Indicar su ubicación:</h3>
-                <strong>Coordenada X:</strong> <input type="number" name="coordenadax"><br>
-                <strong>Coordenada Y:</strong> <input type="number" name="coordenaday"><br>
+                <strong>Coordenada X:</strong> <input type="number" name="coordenadax" required><br>
+                <strong>Coordenada Y:</strong> <input type="number" name="coordenaday" required><br>
                 <button type="submit">Consultar</button>
             </form>
     <?php endif ?>
