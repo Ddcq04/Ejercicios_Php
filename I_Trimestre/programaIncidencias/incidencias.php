@@ -1,20 +1,18 @@
 <?php 
 include_once "funciones.php";
-session_start();
 //Para evitar muchas incidencias en 2 minutos
-/*
+$num_incidencias = 0;
 if(isset($_COOKIE["contador-incidencias"])){
     $num_incidencias = $_COOKIE["contador-incidencias"];
 }
-setcookie("contador-incidencias",$num_incidencias,time() + 10000);
 
-if($_COOKIE["contador-incidencias"] == 3) {
+$num_incidencias++;
+setcookie("contador-incidencias", $num_incidencias,time() + 120);
+if($_COOKIE["contador-incidencias"] >= 3) {
     echo "Superado el número máximo de incidencias.<br>
-        Espere 2 minutos para introducir otra o reinicie su navegador.";
-    include_once "incidenciasform.html";
+          Espere 2 minutos para introducir otra o reinicie su navegador.";
     exit();
 }
-*/
 
 $estadoIncidencia = true;
 if(datoCorrecto($_POST["nombre"]) || datoCorrecto($_POST["resumen"]) || datoCorrecto($_POST["prioridad"]) ){
@@ -24,7 +22,7 @@ if(datoCorrecto($_POST["nombre"]) || datoCorrecto($_POST["resumen"]) || datoCorr
     subidaFichero($incidencia);
     include_once "incidenciasform.html";
 }
-//Si sale error
+//Si sale bien
 if($estadoIncidencia) {
     echo "Muchas gracias " .$_POST["nombre"]. ", se ha anotado su incidencia";
 }else {

@@ -9,9 +9,7 @@ function datoCorrecto($dato):bool {
 }
 
 function transformarDatos($nombre,$problema,$prioridad): string {
-    if($_SERVER['REMOTE_ADDR'] == "::1"){
-        $ip = "127.0.0.1";
-    }
+   $ip = $_SERVER["REMOTE_ADDR"];
     $nueva_incidencia = [date('d:m:Y H:i'), $nombre, $problema, $prioridad,$ip ];
     return implode(",", $nueva_incidencia);
 }   
